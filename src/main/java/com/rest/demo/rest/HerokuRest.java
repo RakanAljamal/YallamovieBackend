@@ -29,10 +29,7 @@ public class HerokuRest {
         return new dummyMovie(1,"Batman","none","none","none");
 }
 
-//    @GetMapping("/movie")
-//    private List<Movie> showMovies() {
-//        return movieService.findAllMovies();
-//    }
+
 
 
 }

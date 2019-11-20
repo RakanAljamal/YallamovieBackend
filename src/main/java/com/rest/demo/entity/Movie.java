@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "movie_id")
     private int id;
 
     @Column(name = "movie_name")
@@ -18,7 +18,7 @@ public class Movie {
     @Column(name = "movie_photo")
     private String moviePhoto;
 
-    @Column(name = "youtube")
+    @Column(name = "movie_youtube")
     private String movieYoutube;
 
     public Movie() {

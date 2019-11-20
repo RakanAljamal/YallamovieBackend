@@ -31,6 +31,7 @@ public class DemoRest {
     }
 
 
+
     //  @GetMapping("/smovie/{movieName}?limit={limit}")
     @GetMapping("/smovie/{movieName}")
     private List<Movie> showName(@PathVariable String movieName, @RequestParam(value = "limit", defaultValue = "15") int limit) {
