@@ -2,16 +2,15 @@ package com.rest.demo.service;
 
 import com.rest.demo.dao.MovieDAO;
 import com.rest.demo.entity.Movie;
+import com.rest.demo.repo.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
+
 @Repository("MovieService")
 public class MovieServiceImpl implements MovieService {
 
@@ -27,7 +26,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional
     public Movie findMovieById(int movieId) {
-      return  movieDAO.findById(movieId).get();
+        return movieDAO.findById(movieId).get();
     }
 
     @Override
@@ -40,5 +39,10 @@ public class MovieServiceImpl implements MovieService {
     @Transactional
     public void deleteMovie(int movieId) {
         movieDAO.delete(findMovieById(movieId));
+    }
+
+    @Override
+    public Page<Movie> findAllByPage(Pageable page) {
+        return movieDAO.findAll(page);
     }
 }

@@ -57,9 +57,10 @@
             <version>2.3.0</version>
         </dependency>
 
-    </dependencies>
 
+    </dependencies>
     <build>
+        <finalName>movieservice</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

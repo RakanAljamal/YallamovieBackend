@@ -17,19 +17,9 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class HerokuRest {
-//    @Autowired
-//    @Qualifier("MovieService")
-//    private MovieService movieService;
-//    @Autowired
-//    @Qualifier("MyMovieService")
-//    private MyMovieService myMovieService;
-
     @RequestMapping("/")
     public dummyMovie showHome(){
         return new dummyMovie(1,"Batman","none","none","none");
 }
-
-
-
 
 }

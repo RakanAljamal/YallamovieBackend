@@ -5,6 +5,8 @@ import com.rest.demo.service.MovieService;
 import com.rest.demo.service.MyMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,7 +31,6 @@ public class DemoRest {
     private List<Movie> showMovies() {
         return movieService.findAllMovies();
     }
-
 
 
     //  @GetMapping("/smovie/{movieName}?limit={limit}")
@@ -67,5 +68,11 @@ public class DemoRest {
     private String deleteTheMovie(@PathVariable int movieId) {
         movieService.deleteMovie(movieId);
         return "Deleted Successfully";
+    }
+//    Trying paging .. DUH!!
+
+    @GetMapping("/test")
+    private Page<Movie> fetchMoviePage(Pageable page) {
+        return movieService.findAllByPage(page);
     }
 }
