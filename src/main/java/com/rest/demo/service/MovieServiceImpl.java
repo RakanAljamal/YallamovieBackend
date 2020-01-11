@@ -2,7 +2,6 @@ package com.rest.demo.service;
 
 import com.rest.demo.dao.MovieDAO;
 import com.rest.demo.entity.Movie;
-import com.rest.demo.repo.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
