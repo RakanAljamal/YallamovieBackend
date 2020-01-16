@@ -9,11 +9,11 @@ import java.util.List;
 public interface MovieService {
     public List<Movie> findAllMovies();
 
-    public Movie findMovieById(int employeeId);
+    public Movie findMovieById(int movieId);
 
-    public void saveMovie(Movie employee);
+    public void saveMovie(Movie movie);
 
-    public void deleteMovie(int employeeId);
+    public void deleteMovie(int movieId);
 
     public Page<Movie> findAllByPage(Pageable page);
 }
