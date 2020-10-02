@@ -29,7 +29,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class DemoRest {
+public class MovieController {
     @Autowired
     @Qualifier("MovieService")
     private MovieService movieService;

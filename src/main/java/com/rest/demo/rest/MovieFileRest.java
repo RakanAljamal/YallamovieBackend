@@ -21,7 +21,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-    
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
@@ -33,16 +33,19 @@ public class MovieFileRest {
 
     @PostMapping(value = "/upload")
     public ResponseEntity<Object> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
-        File convertFile = new File("C:\\Users\\Rakan\\Downloads\\filedemo\\" + file.getOriginalFilename());
+        String pathname = "C:/media-upload/";
+        File convertFile = new File(pathname + file.getOriginalFilename());
         FileOutputStream fout = new FileOutputStream(convertFile);
         fout.write(file.getBytes());
+        MovieFile movieFile = new MovieFile(pathname, file.getOriginalFilename());
+        movieFileService.saveMovie(movieFile);
         fout.close();
         return new ResponseEntity<>("File has uploaded successfully", HttpStatus.OK);
     }
 
     @GetMapping("/download/{movieId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable int movieId, HttpServletRequest request) {
-        Path folderPath = Paths.get("C:\\Users\\Rakan\\Downloads\\filedemo\\" + movieFileService.findMovieById(movieId).getFilePath() + ".mp4");
+        Path folderPath = Paths.get("C:/media-upload/" + movieFileService.findMovieById(movieId).getFilePath() + ".mp4");
         Resource resource = null;
         try {
             resource = new UrlResource(folderPath.toUri());
